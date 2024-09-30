@@ -1,0 +1,15 @@
+{
+    "name": "mateu/php-to-laravel",
+    "require-dev": {
+        "symfony/var-dumper": "^7.1"
+    },
+    "authors": [
+        {
+            "name": "MDx593",
+            "email": "mateusdamacena593@gmail.com"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.23"
+    }
+}
