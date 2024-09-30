@@ -8,7 +8,11 @@
         "psr-4": {
             "app\\": "app/",
             "core\\": "core/"
-        }
+        },
+        "files": [
+            "core/helpers/constants.php",
+            "core/helpers/functions.php"
+        ]
     },
     "authors": [
         {
@@ -17,6 +21,8 @@
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "^5.6"
+        "vlucas/phpdotenv": "^5.6",
+        "spatie/ignition": "^1.15",
+        "php-di/php-di": "^7.0"
     }
 }
