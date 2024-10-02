@@ -4,8 +4,10 @@ namespace app\controllers;
 
 class HomeController
 {
-    public function index()
-    {
-        dd('home');
-    }
+	public function index()
+	{
+		view('home',[
+			'title' => 'Home',
+		]);
+	}
 }

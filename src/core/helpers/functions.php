@@ -1,6 +1,7 @@
 <?php
+use core\library\Layout;
 
-function view($view, $data = [])
+function view($view, $data = [], $viewPath = VIEW_PATH)
 {
-    dd('saco ' . $view);
+    return Layout::render($view, $data, $viewPath);
 }

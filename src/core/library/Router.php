@@ -2,6 +2,7 @@
 
 namespace core\Library;
 
+use core\controllers\ErrorController;
 use core\exceptions\ControllerNotFoundException;
 use DI\Container;
 
@@ -49,23 +50,25 @@ public function __construct(private Container $container)
         }
 
         if($this->controller){
-            return $this->hendleController($this->controller, $this->action, $this->parameters);
+            return $this->hendleController();
         }
 
         return $this->hendleNotFound();
     }
 
-    private function hendleController(string $controller, string $action, array $parameters)
+    private function hendleController()
     {
-        if(!class_exists($controller) || !method_exists($controller, $action)) {
-            throw new ControllerNotFoundException("[$controller::$action] does not exists.");
+        if(!class_exists($this->controller) || !method_exists($this->controller, $this->action)) {
+            throw new ControllerNotFoundException(
+                "[$this->controller::$this->action] does not exists."
+            );
         }   
-        $controller = $this->container->get($controller);
-        $this->container->call([$controller, $action], [...$parameters]);
+        $controller = $this->container->get($this->controller);
+        $this->container->call([$controller, $this->action], [...$this->parameters]);
     }
 
     private function hendleNotFound()
     {
-        dump('not found controler');
+        (new ErrorController)->notFound();
     }
 }

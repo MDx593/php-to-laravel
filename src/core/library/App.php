@@ -37,7 +37,7 @@ class App
     public function withEnvironmentVariables()
     {
         try {
-            $dotenv = Dotenv::createImmutable(dirname(__FILE__, 3));
+            $dotenv = Dotenv::createImmutable(BASE_PATH);
             $dotenv->load();
             return $this;
         } catch (\Throwable $th) {
